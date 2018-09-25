@@ -15,23 +15,22 @@
  *  limitations under the License.
  *
  */
-package io.openshift.booster;
+package org.uth.botbackend;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+public class Greeting {
 
-@Path("/")
-public class GreetingEndpoint {
+    private final String content;
 
-    private static final String template = "Hello, %s!";
-
-    @GET
-    @Path("/greeting")
-    @Produces("application/json")
-    public Greeting greeting(@QueryParam("name") String name) {
-        String suffix = name != null ? name : "World";
-        return new Greeting(String.format(template, suffix));
+    public Greeting() {
+        this.content = null;
     }
+
+    public Greeting(String content) {
+        this.content = content;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
 }
